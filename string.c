@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	ft_atoi(char *str)
+int	ft_my_atoi(char *str)
 {
 	long	sign;
 	long	result;

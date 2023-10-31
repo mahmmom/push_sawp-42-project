@@ -2,9 +2,15 @@
 
 int main(int ac, char **av)
 {
-    if (ac > 1 && check_input(ac, av))
+    if (ac > 1)
     {
-      start_stack(ac-1, av);
+		int i = 0;
+		char **str = parse_args(ac-1, av);
+		while (str[i])
+		{
+			printf("%s\n", str[i]);
+			i++;
+		}
     }
     else
     {

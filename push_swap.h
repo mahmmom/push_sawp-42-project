@@ -3,27 +3,25 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdbool.h>
+#include "libft/libft.h"
 
 # define ERROR_MESSAGE "Invalid entry. Please enter a valid number. \n INT_MIN < Number < INT_MAX\n"
+# define ERROR_ARGS "No arguments found\n"
 
 typedef struct s_stack {
-    int *stack;
-    int size;
-    int count;
+    int content;
+    struct s_stack *next;
 } t_stack;
 
-int	    ft_atoi(char *str);
+int	    ft_my_atoi(char *str);
 int     is_valid_number(char *str);
 void	putstr_fd(char *s, int fd);
 void	error_handle();
 int     check_input(int ac, char **av);
-void    start_stack(int ac, char **av);
+void    start_stack(char **str);
+char	**parse_args(int arg_count, char **args);
 
-
-t_stack   *create_stack(int   capacity);
-bool    is_full(t_stack   *stack);
-bool    is_empty(t_stack  *stack);
-bool    push(t_stack *stack,  int item);
-bool    pop(t_stack   *stack, int *item);
-bool    peekt(t_stack  *stack, int *item);
-void    destroy_stack(t_stack *stack);
+t_stack *ft_stack_new(int content);
+void ft_stack_add_back(t_stack **lst, t_stack *newnode);
+void	ft_stack_delone(t_stack *lst, void (*del)(int));
+void ft_stack_clear(t_stack **lst, void (*del)(int));

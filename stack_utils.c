@@ -1,69 +1,51 @@
 #include "push_swap.h"
 
-t_stack   *create_stack(int   count)
+t_stack *ft_stack_new(int content)
 {
-     if (count <= 0)
-        return (NULL);
+	t_stack *ptr;
 
-    t_stack   *stack = malloc(sizeof(stack));
-    if (!stack)
-        return (NULL);
-
-    stack->stack = malloc(sizeof(int) * count);
-    if (!stack->stack)
-    {
-        return (NULL);
-        free(stack);
-    }
-    stack->count = count;
-    stack->size = 0;
-
-    return (stack);
+	ptr = (t_stack *)malloc(sizeof(*ptr));
+	if(!ptr)
+		return (NULL);
+	ptr -> content = content;
+	ptr -> next = NULL;
+	return (ptr);
+}
+void ft_stack_add_back(t_stack **lst, t_stack *newnode)
+{
+	if (!*lst)
+	{
+		*lst = newnode;
+		return ;
+	}
+	t_stack *current = *lst;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = newnode;
 }
 
-void    destroy_stack(t_stack *stack)
+
+void	ft_stack_delone(t_stack *lst, void (*del)(int))
 {
-    free(stack->stack);
-    free(stack);
+	if (!lst || !del)
+		return ;
+	(del)(lst->content);
+	free(lst);
 }
 
-bool    is_full(t_stack   *stack)
+void ft_stack_clear(t_stack **lst, void (*del)(int))
 {
-    return (stack->count == stack->size);
-}
-
-bool    is_empty(t_stack  *stack)
-{
-    return (stack->size == 0);
-}
-
-bool    push(t_stack *stack,  int item)
-{
-    if (is_full(stack))
-        return (false);
-    
-    stack->stack[stack->size] = item;
-    stack->size++;
-
-    return (true);
-}
-
-bool pop(t_stack *stack, int *item)
-{
-    if (is_empty(stack))
-        return false;
-
-    *item = stack->stack[stack->size - 1];
-    stack->size--;
-    return true;
-}
-
-bool    peekt(t_stack  *stack, int *item)
-{
-    if (is_empty(stack))
-        return (false);
-
-   *item =  stack->stack[stack->size--];
-
-    return (true);
+	t_stack	*ptr;
+	t_stack	*temp;
+	
+	if (!lst ||!del)
+		return ;
+	ptr = *lst;
+	while (ptr != NULL)
+	{
+		temp = ptr->next;
+		ft_stack_delone(ptr, del);
+		ptr = temp;
+	}
+	*lst = NULL;
 }
