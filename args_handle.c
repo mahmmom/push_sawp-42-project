@@ -1,4 +1,3 @@
-#include "libft/libft.h"
 #include "push_swap.h"
 
 char	**parse_args(int arg_count, char **args)
@@ -20,7 +19,33 @@ char	**parse_args(int arg_count, char **args)
 		free(tmp);
 		i++;
 	}
-	printf("%s", arg);
 	split = ft_split(arg, ' ');
 	return (split);
+}
+
+static int is_valid_number(char *str)
+{
+    if (*str == '-' || *str == '+')
+        str++;
+    while (*str)
+	{
+        if (*str < '0' || *str > '9')
+            return 0;
+        str++;
+    }
+    return (1);
+}
+
+int check_input(char **av)
+{
+	int i;
+
+    i = 0;
+	while  (av[i])
+	{
+        if (!is_valid_number(av[i]))
+            error_handle();
+		i++;
+    }
+	return (1);
 }
