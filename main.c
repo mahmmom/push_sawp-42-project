@@ -13,16 +13,19 @@ int main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	av = parse_args(ac-1, av);
-	if (!check_input(av))
+	if (check_input(av))
 		ft_init_stack(&a,av);
-
-	
+	printf("======== stack A ==========\n");
+	print_stack(a);
+	pb(&a,&b);
+	pb(&a,&b);
+	pa(&a,&b);
+	printf("======== stack A after push ==========\n");
+	print_stack(a);
+	printf("======== stack B ==========\n");
+	print_stack(b);
 	return (0);
 }
-
-
-
-
 
 
 

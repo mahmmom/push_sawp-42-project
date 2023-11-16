@@ -1,6 +1,6 @@
 NAME 			= push_swap
 
-SRC 			= main.c stack_utils.c args_handle.c error_handle.c\
+SRC 			= main.c stack_utils.c args_handle.c error_handle.c init_stack.c rule1.c\
 
 CC				= cc
 RM				= rm -f

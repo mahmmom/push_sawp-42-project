@@ -49,3 +49,15 @@ int check_input(char **av)
     }
 	return (1);
 }
+int	check_repetition(t_stack *a, int nbr)
+{
+	if (a == NULL)
+		return (0);
+	while (a)
+	{
+		if (a->content == nbr)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}

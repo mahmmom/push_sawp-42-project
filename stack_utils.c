@@ -11,19 +11,23 @@ t_stack *ft_stack_new(int content)
 	ptr -> next = NULL;
 	return (ptr);
 }
+
 void ft_stack_add_back(t_stack **lst, t_stack *newnode)
 {
+	t_stack *current;
+
 	if (!*lst)
 	{
 		*lst = newnode;
 		return ;
 	}
-	t_stack *current = *lst;
+	current = *lst;
 	while (current->next != NULL)
+	{
 		current = current->next;
+	}
 	current->next = newnode;
 }
-
 
 void	ft_stack_delone(t_stack *lst, void (*del)(int))
 {
