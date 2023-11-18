@@ -7,8 +7,7 @@ static void	push(t_stack **src,	t_stack **dest)
 	if (!*src)
 		return ;
 	temp = *src;
-	*src = (*src)->next;
-
+	(*src) = (*src)->next;
 	temp->next = *dest;
 	(*dest) = temp;
 }

@@ -16,3 +16,16 @@ void	error_handle()
 		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 }
+
+void	free_string(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}

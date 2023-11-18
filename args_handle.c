@@ -1,4 +1,5 @@
 #include "push_swap.h"
+#include <stdio.h>
 
 char	**parse_args(int arg_count, char **args)
 {
@@ -20,6 +21,7 @@ char	**parse_args(int arg_count, char **args)
 		i++;
 	}
 	split = ft_split(arg, ' ');
+	free(arg);
 	return (split);
 }
 
@@ -41,10 +43,16 @@ int check_input(char **av)
 	int i;
 
     i = 0;
+	if (av[0] == NULL)
+		error_handle();
 	while  (av[i])
 	{
+		printf("const char *restrict, ...");
         if (!is_valid_number(av[i]))
+		{
+			free_string(av);
             error_handle();
+		}
 		i++;
     }
 	return (1);

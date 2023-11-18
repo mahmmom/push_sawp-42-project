@@ -5,6 +5,8 @@ int main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 
+	(void)b;
+
 	if (1 == ac || (2 == ac && !av[1][0]))
 	{
 		putstr_fd(ERROR_ARGS, STDERR_FILENO);
@@ -17,19 +19,9 @@ int main(int ac, char **av)
 		ft_init_stack(&a,av);
 	printf("======== stack A ==========\n");
 	print_stack(a);
-	pb(&a,&b);
-	pb(&a,&b);
-	pa(&a,&b);
-	printf("======== stack A after push ==========\n");
-	print_stack(a);
-	printf("======== stack B ==========\n");
-	print_stack(b);
+	//pb(&a,&b);
+	/*printf("======== stack A After rotate ==========\n");
+	rra(&a);
+	print_stack(a);*/
 	return (0);
 }
-
-
-
-
-
-//for(int i = 0; av[i] != NULL; i++)
-		//printf("[%s]\n", av[i]);
