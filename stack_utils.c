@@ -53,3 +53,17 @@ void ft_stack_clear(t_stack **lst, void (*del)(int))
 	}
 	*lst = NULL;
 }
+int	ft_stack_size(t_stack **lst)
+{
+	int		count;
+	t_stack	*temp;
+
+	count = 0;
+	temp = (*lst);
+	while (temp != NULL)
+	{
+		temp = temp -> next;
+		count++;
+	}
+	return (count);
+}

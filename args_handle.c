@@ -47,7 +47,6 @@ int check_input(char **av)
 		error_handle();
 	while  (av[i])
 	{
-		printf("const char *restrict, ...");
         if (!is_valid_number(av[i]))
 		{
 			free_string(av);

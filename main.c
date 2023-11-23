@@ -17,11 +17,10 @@ int main(int ac, char **av)
 	av = parse_args(ac-1, av);
 	if (check_input(av))
 		ft_init_stack(&a,av);
-	printf("======== stack A ==========\n");
 	print_stack(a);
-	//pb(&a,&b);
-	/*printf("======== stack A After rotate ==========\n");
-	rra(&a);
-	print_stack(a);*/
+	printf("======== SORTED ==========\n");
+	sorted(&a);
+	print_stack(a);
+	
 	return (0);
 }

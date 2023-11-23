@@ -5,8 +5,8 @@
 #include <stdbool.h>
 #include "libft/libft.h"
 
-# define ERROR_MESSAGE "Invalid entry. Please enter a valid number. \n INT_MIN < Number < INT_MAX\n No repitition\n"
-# define ERROR_ARGS "Error !!! No arguments found\n"
+# define ERROR_MESSAGE "Error\n"
+# define ERROR_ARGS "Error\n"
 
 typedef struct s_stack {
     int content;
@@ -42,11 +42,17 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack	**a, t_stack **b);
 
+//small numbers
+void	sort_2(t_stack **a);
+void	sort_3(t_stack **a);
+void	sorted(t_stack **a);
+
 //stack utils
 t_stack *ft_stack_new(int content);
 void 	ft_stack_add_back(t_stack **lst, t_stack *newnode);
 void	ft_stack_delone(t_stack *lst, void (*del)(int));
 void 	ft_stack_clear(t_stack **lst, void (*del)(int));
+int		ft_stack_size(t_stack **lst);
 
 //error handle
 void	free_string(char **str);

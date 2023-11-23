@@ -21,18 +21,18 @@ static void	r_rotate(t_stack	**stack)
 void	rra(t_stack **a)
 {
 	r_rotate(a);
-	write(1, "ra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
 {
 	r_rotate(b);
-	write(1, "rb\n", 3);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack	**a, t_stack **b)
 {
 	rra(a);
 	rrb(b);
-	write(1, "rr\n", 3);
+	write(1, "rrr\n", 4);
 }
