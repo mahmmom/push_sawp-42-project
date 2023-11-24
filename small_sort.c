@@ -39,12 +39,15 @@ void	sort_3(t_stack **a)
 		rra(a);
 	}
 }
-void	sorted(t_stack **a)
+bool	sorted(t_stack *a)
 {
-	if (ft_stack_size(a) == 2)
-		sort_2(a);
-	else if (ft_stack_size(a) == 3)
-		sort_3(a);
-	else
-		return ;
+	if (!a)
+		return (1);
+	while (a->next != NULL)
+	{
+		if (a->content > a->next->content)
+			return (false);
+		a = a->next;
+	}
+	return (true);
 }

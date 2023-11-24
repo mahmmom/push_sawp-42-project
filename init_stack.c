@@ -9,15 +9,39 @@ void	print_stack(t_stack	*a)
 		(a) = (a)->next;
 	}
 }
+static t_stack	*find_last(t_stack	*head)
+{
+	if (!head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
+}
 
 static void	fill_stack(t_stack **a, int num)
 {
 	t_stack	*tmp;
+	t_stack	*last_node;
 
-	tmp = (t_stack*)malloc(sizeof(*tmp));
+	if (!a)
+		return;
+	tmp = malloc(sizeof(t_stack));
+	if (!tmp)
+		return;
 	tmp->content = num;
 	tmp->next = NULL;
-	ft_stack_add_back(a, tmp);
+	if (!(*a))
+	{
+		*a = tmp;
+		tmp->prev = NULL;
+	}
+	else
+	{
+		last_node = find_last(*a);
+		last_node->next = tmp;
+		tmp->prev = last_node;
+	}
+	//ft_stack_add_back(a, tmp);
 }
 
 void	ft_init_stack(t_stack **a, char **str)
