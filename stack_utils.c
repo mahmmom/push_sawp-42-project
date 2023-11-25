@@ -12,6 +12,26 @@ t_stack *ft_stack_new(int content)
 	return (ptr);
 }
 
+int	ft_stack_size(t_stack **lst)
+{
+	int		count;
+	t_stack	*temp;
+
+	count = 0;
+	temp = (*lst);
+	while (temp != NULL)
+	{
+		temp = temp -> next;
+		count++;
+	}
+	return (count);
+}
+
+t_stack	*find_max(t_stack **stack)
+{
+	
+}
+
 void ft_stack_add_back(t_stack **lst, t_stack *newnode)
 {
 	t_stack *current;
@@ -52,18 +72,4 @@ void ft_stack_clear(t_stack **lst, void (*del)(int))
 		ptr = temp;
 	}
 	*lst = NULL;
-}
-int	ft_stack_size(t_stack **lst)
-{
-	int		count;
-	t_stack	*temp;
-
-	count = 0;
-	temp = (*lst);
-	while (temp != NULL)
-	{
-		temp = temp -> next;
-		count++;
-	}
-	return (count);
 }
