@@ -8,7 +8,7 @@ void	sort_2(t_stack **a)
 	num1 = (*a)->content;
 	num2 = (*a)->next->content;
 	if (num1 > num2)
-		sa(a);
+		sa(a,false);
 }
 
 void	sort_3(t_stack **a)
@@ -24,19 +24,19 @@ void	sort_3(t_stack **a)
 		return ;
 	else if (num1 < num2 && num2 > num3 && num1 < num3)
 	{
-		sa(a);
-		ra(a);
+		sa(a,false);
+		ra(a,false);
 	}
 	else if (num1 > num2 && num2 < num3 && num1 < num3)
-		sa(a);
+		sa(a,false);
 	else if (num1 < num2 && num2 > num3 && num1 > num3)
-		rra(a);
+		rra(a,false);
 	else if (num1 > num2 && num2 < num3 && num1 > num3)
-		ra(a);
+		ra(a,false);
 	else if (num1 > num2 && num2 > num3 && num1 > num3)
 	{
-		sa(a);
-		rra(a);
+		sa(a,false);
+		rra(a,false);
 	}
 }
 bool	sorted(t_stack *a)

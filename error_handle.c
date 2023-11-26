@@ -13,8 +13,8 @@ void	putstr_fd(char *s, int fd)
 
 void	error_handle()
 {
-		putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
-		exit(EXIT_FAILURE);
+	putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }
 
 void	free_string(char **str)

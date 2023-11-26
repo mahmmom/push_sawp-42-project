@@ -41,7 +41,6 @@ static void	fill_stack(t_stack **a, int num)
 		last_node->next = tmp;
 		tmp->prev = last_node;
 	}
-	//ft_stack_add_back(a, tmp);
 }
 
 void	ft_init_stack(t_stack **a, char **str)
@@ -54,12 +53,12 @@ void	ft_init_stack(t_stack **a, char **str)
 	i = 0;
 	while (str[i])
 	{
-		num = ft_atoi(str[i]);
+		num = ft_atol(str[i]);
 		if (num > INT_MAX || num < INT_MIN)
 			error_handle();
 		if (check_repetition(*a, (int)num))
 			error_handle();
-		fill_stack(a, num);
+		fill_stack(a, (int)num);
 		i++;
 	}
 	free_string(str);

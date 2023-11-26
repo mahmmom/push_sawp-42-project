@@ -1,17 +1,5 @@
 #include "push_swap.h"
 
-t_stack *ft_stack_new(int content)
-{
-	t_stack *ptr;
-
-	ptr = (t_stack *)malloc(sizeof(*ptr));
-	if(!ptr)
-		return (NULL);
-	ptr -> content = content;
-	ptr -> next = NULL;
-	return (ptr);
-}
-
 int	ft_stack_size(t_stack **lst)
 {
 	int		count;
@@ -27,9 +15,46 @@ int	ft_stack_size(t_stack **lst)
 	return (count);
 }
 
-t_stack	*find_max(t_stack **stack)
+t_stack	*find_max(t_stack *stack)
 {
-	
+	t_stack	*max;
+	int	highest;
+
+	if (!stack)
+		return (NULL);
+	max = NULL;
+	highest = stack->content;
+	while (stack)
+	{
+		if (stack->content >= highest)
+		{
+			highest = stack->content;
+			max = stack;
+		}
+		stack = stack->next;
+	}
+	return (max);
+}
+
+t_stack	*find_min(t_stack *stack)
+{
+	t_stack	*min;
+	int	lowest;
+
+	if (!stack)
+		return (NULL);
+	min = NULL;
+	lowest = stack->content;
+	while (stack)
+	{
+		if (stack->content < lowest)
+		{
+			lowest = stack->content;
+			min = stack;
+		}
+		stack = stack->next;
+	}
+	return (min);
 }
 
 void ft_stack_add_back(t_stack **lst, t_stack *newnode)
@@ -49,27 +74,3 @@ void ft_stack_add_back(t_stack **lst, t_stack *newnode)
 	current->next = newnode;
 }
 
-void	ft_stack_delone(t_stack *lst, void (*del)(int))
-{
-	if (!lst || !del)
-		return ;
-	(del)(lst->content);
-	free(lst);
-}
-
-void ft_stack_clear(t_stack **lst, void (*del)(int))
-{
-	t_stack	*ptr;
-	t_stack	*temp;
-	
-	if (!lst ||!del)
-		return ;
-	ptr = *lst;
-	while (ptr != NULL)
-	{
-		temp = ptr->next;
-		ft_stack_delone(ptr, del);
-		ptr = temp;
-	}
-	*lst = NULL;
-}

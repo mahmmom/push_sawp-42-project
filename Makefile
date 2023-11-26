@@ -1,7 +1,10 @@
 NAME 			= push_swap
 
 SRC 			= main.c stack_utils.c args_handle.c error_handle.c init_stack.c \
-				push.c swap.c rotate.c rrotate.c small_sort.c\
+				rule_push.c rule_swap.c rule_rotate.c rule_rrotate.c \
+				small_sort.c init_algorithm.c \
+				sort_algorithm.c init_a.c init_b.c algorithm_utils.c\
+
 
 CC				= cc
 RM				= rm -f
