@@ -1,12 +1,13 @@
 #include "push_swap.h"
 
-int	ft_stack_size(t_stack **lst)
+
+int	ft_stack_size(t_stack *lst)
 {
 	int		count;
 	t_stack	*temp;
 
 	count = 0;
-	temp = (*lst);
+	temp = lst;
 	while (temp != NULL)
 	{
 		temp = temp -> next;
@@ -18,15 +19,14 @@ int	ft_stack_size(t_stack **lst)
 t_stack	*find_max(t_stack *stack)
 {
 	t_stack	*max;
-	int	highest;
+	long	highest;
 
 	if (!stack)
 		return (NULL);
-	max = NULL;
-	highest = stack->content;
+	highest = LONG_MIN;
 	while (stack)
 	{
-		if (stack->content >= highest)
+		if (stack->content > highest)
 		{
 			highest = stack->content;
 			max = stack;
@@ -39,12 +39,11 @@ t_stack	*find_max(t_stack *stack)
 t_stack	*find_min(t_stack *stack)
 {
 	t_stack	*min;
-	int	lowest;
+	long	lowest;
 
 	if (!stack)
 		return (NULL);
-	min = NULL;
-	lowest = stack->content;
+	lowest = LONG_MAX;
 	while (stack)
 	{
 		if (stack->content < lowest)

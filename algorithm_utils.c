@@ -4,7 +4,7 @@ void	ready_to_push(t_stack **stack, t_stack *top_node, char s_name)
 {
 	if (!stack || !*stack || !top_node)
 		return;
-	while ((*stack)->content != top_node->content)
+	while (*stack != top_node)
 	{
 		if (s_name == 'a')
 		{
@@ -20,7 +20,6 @@ void	ready_to_push(t_stack **stack, t_stack *top_node, char s_name)
 			else
 				rrb(stack, false);
 		}
-		print_stack(*stack);
 	}
 }
 

@@ -63,7 +63,7 @@ bool	sorted(t_stack *a);
 void	start_algorithm(t_stack **a, t_stack **b);
 void	init_stack_a(t_stack *a, t_stack *b);
 void    current_index(t_stack *stack);
-t_stack	*set_cheapest(t_stack *stack);
+void	set_cheapest(t_stack *stack);
 void	ready_to_push(t_stack **stack, t_stack *top_node, char s_name);
 void	init_stack_b(t_stack *a, t_stack *b);
 void	push_to_b(t_stack **a, t_stack **b);
@@ -77,9 +77,7 @@ Helping Functions
 //stack utils
 t_stack *ft_stack_new(int content);
 void 	ft_stack_add_back(t_stack **lst, t_stack *newnode);
-void	ft_stack_delone(t_stack *lst, void (*del)(int));
-void 	ft_stack_clear(t_stack **lst, void (*del)(int));
-int		ft_stack_size(t_stack **lst);
+int		ft_stack_size(t_stack *lst);
 t_stack	*find_max(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
 

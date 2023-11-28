@@ -3,8 +3,10 @@
 void	start_algorithm(t_stack **a, t_stack **b)
 {
 	int len_sa;
+	t_stack *tmp;
 
-    len_sa = ft_stack_size(a);
+    tmp = *a;
+	len_sa = ft_stack_size(tmp);
     if (len_sa-- > 3 && !sorted(*a))
         pb(a, b, false);
     if (len_sa-- > 3 && !sorted(*a))
